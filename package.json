@@ -1,0 +1,15 @@
+{
+  "name": "mouse-utils",
+  "version": "0.0.1",
+  "description": "Mouse and Keyboard Functions / Функции мыши и клавиатуры",
+  "keywords": [
+    "mouse",
+    "keyboard",
+    "functions",
+    "mouse and keyboard functions",
+	"api"
+  ],
+  "main": "index.js",
+  "author": "vlad441",
+  "license": "CC0"
+}
