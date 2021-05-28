@@ -18,4 +18,10 @@ int main(int argc, char * argv[])
 	if(argc>=2&&strcmp(argv[1], "-press")==0)
 	{ 	if(argc<3){ std::cout << "error: press - keycode not input." << std::endl; return 0; }
 		keybd_event(char(atoi(argv[2])), 0,0,0); keybd_event(char(atoi(argv[2])), 0,KEYEVENTF_KEYUP,0); std::cout << "done: press" << std::endl; return 1; }
+	// = экран =
+	if(argc>=2&&strcmp(argv[1], "-getpxcol")==0)
+	{ 	if(argc<4){ std::cout << "error: getpxcol - x or y not input." << std::endl; return 0; }
+		HDC dc = GetDC(NULL); DWORD pxcolor = GetPixel(dc, atoi(argv[2]), atoi(argv[3])); ReleaseDC(NULL, dc); 
+		int dwR = GetRValue(pxcolor); int dwG = GetGValue(pxcolor); int dwB = GetBValue(pxcolor);
+		std::cout << "done: " << dwR << " " << dwG << " " << dwB; return 1; }
 }

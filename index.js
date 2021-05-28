@@ -15,6 +15,8 @@ function mkfuncs()
 	{ let resp; if(btn=="right"){ resp = await cppexec("-rclick"); }else if(btn=="double"){ resp = await cppexec("-dclick"); }
 		else{ resp = await cppexec("-click"); } if(resp.indexOf("error")<0){ return true; }else{ return false; } }
 	mkutils.PressKey = async function(key){ let resp = await cppexec("-press "+key); if(resp.indexOf("error")<0){ return true; }else{ return false; } }
+	mkutils.GetPxColor = async function(x, y){ let resp = await cppexec("-getpxcol "+x+" "+y); resp=resp.split(" "); 
+		resp = [resp[1], resp[2], resp[3]]; for(let i in resp){ let old=resp[i]; resp[i]=Number(resp[i]).toString(16); if(old<=15){ resp[i]="0"+resp[i]; } } return "#"+resp.join(""); }
 	return mkutils;
 }
 
